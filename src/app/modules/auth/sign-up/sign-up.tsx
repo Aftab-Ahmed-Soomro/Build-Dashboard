@@ -1,7 +1,7 @@
 "use client"
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/app/firebase/firebaseConfig";
 import { useRouter } from "next/navigation";
 
@@ -12,17 +12,17 @@ interface Inputs {
 
 export default function SignUpModules() {
   const router = useRouter();
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = data => {
     const {email, password} = data;
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    const user = userCredential.user;
+    // const user = userCredential.user;
     router.push("/dashboard");
   })
   .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
   });
   };
 

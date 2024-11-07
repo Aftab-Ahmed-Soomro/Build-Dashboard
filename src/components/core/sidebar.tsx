@@ -1,6 +1,6 @@
 "use client"
 
-import { Calendar, Home, Inbox, LogOut, Search, Settings } from "lucide-react"
+import { Calendar, Home, Inbox, LogOut, Search} from "lucide-react"
 // import { getAuth, signOut } from "firebase/auth";
 
 import {
